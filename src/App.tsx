@@ -6,35 +6,43 @@ import { Search } from './components/Search/Search';
 import { Carousel } from './components/Carousel/Carousel';
 import { WeatherChart } from './components/WeatherChart/WeatherChart';
 import axios from 'axios';
+import { setWeatherData } from './redux/slices/weather';
+import { useAppDispatch } from './utils/useAppDispatch';
+import { useAppSelector } from './utils/useAppSelector';
+import { getWeatherDataRequest } from './api-rest/weather';
 
 function App() {
-  const url = `${process.env.REACT_APP_API_URL}?lat=44.34&lon=10.99&cnt=7&units=metric&appid=${process.env.REACT_APP_APP_ID}`;
+  const unit = useAppSelector((state) => state.weather.unit);
+  const lat = useAppSelector((state) => state.weather.lat);
+  const lon = useAppSelector((state) => state.weather.lon);
 
-  const [data, setData] = useState(null);
   const [location, setLocation] = useState<string>('Tunisia');
+  // const [data, setData] = useState(null);
+  const [unitData, setUnitData] = useState('');
 
-  const getWeatherData = () => {
-    axios
-      .get(url)
-      .then((response) => {
-        const weatherData = response.data.list;
-        setData(weatherData);
-      })
-      .catch((error) => console.log(error));
+  const dispatch = useAppDispatch();
+
+  const handleClick = () => {
+    getWeatherDataRequest({ lat, lon, unit }).then((res) =>
+      dispatch(setWeatherData(res.data.list))
+    );
   };
 
   useEffect(() => {
-    getWeatherData();
+    getWeatherDataRequest({ lat, lon, unit }).then((res) =>
+      dispatch(setWeatherData(res.data.list))
+    );
   }, []);
 
   return (
     <div className="App">
       <div className="App-header">
-        <Header />
+        <Header setUnitData={setUnitData} />
         <Search />
-        <button onClick={getWeatherData}>search</button>
-        {data && <Carousel data={data} city={location} />}
+        <button onClick={handleClick}>search</button>
+        {<Carousel unitData={unitData} city={location} />}
 
+        {/* //Todo: add weather bar chart */}
         {/* <WeatherChart /> */}
       </div>
     </div>

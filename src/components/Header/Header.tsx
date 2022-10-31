@@ -15,7 +15,20 @@ const Title = styled.h1`
   color: palevioletred;
 `;
 
-export const Header = () => {
+interface HeaderProps {
+  unit?: string;
+  setUnitData: (arg0: any) => void;
+}
+
+export const Header = ({ setUnitData, unit }: HeaderProps) => {
+  const onChangeHandler = (
+    e: React.SyntheticEvent<Element, Event>
+  ) => {
+    console.log((e.target as HTMLInputElement).value);
+    const unitData = (e.target as HTMLInputElement).value;
+    setUnitData(unitData);
+  };
+
   return (
     <div>
       <Title>Weather app</Title>
@@ -28,11 +41,11 @@ export const Header = () => {
         <RadioGroup
           aria-labelledby="unit-radio-buttons-group-label"
           row
-          defaultValue="celcius"
+          defaultValue="metric"
           name="radio-buttons-group"
         >
           <FormControlLabel
-            value="celcius"
+            value="metric"
             control={
               <Radio
                 sx={{
@@ -44,10 +57,11 @@ export const Header = () => {
               />
             }
             label="Celcius"
+            onChange={onChangeHandler}
           />
 
           <FormControlLabel
-            value="fahrenheit"
+            value="standard"
             control={
               <Radio
                 sx={{
@@ -59,6 +73,7 @@ export const Header = () => {
               />
             }
             label="Fahrenheit"
+            onChange={onChangeHandler}
           />
         </RadioGroup>
       </FormControl>

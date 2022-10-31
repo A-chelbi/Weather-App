@@ -5,6 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 
 export const Search = () => {
+  // Todo: use geolocation api to get city lat and lon
   return (
     <Paper
       component="form"
