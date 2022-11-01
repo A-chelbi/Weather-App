@@ -43,7 +43,7 @@ function App() {
         {<Carousel unitData={unitData} city={location} />}
 
         {/* //Todo: add weather bar chart */}
-        {/* <WeatherChart /> */}
+        <WeatherChart />
       </div>
     </div>
   );

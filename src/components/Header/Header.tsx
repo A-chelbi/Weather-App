@@ -34,7 +34,12 @@ export const Header = ({ setUnitData, unit }: HeaderProps) => {
       <Title>Weather app</Title>
 
       <FormControl>
-        <FormLabel id="unit-radio-buttons-group-label">
+        <FormLabel
+          id="unit-radio-buttons-group-label"
+          sx={{
+            color: '#fff',
+          }}
+        >
           Unit
         </FormLabel>
 
