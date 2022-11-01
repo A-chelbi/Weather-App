@@ -13,7 +13,10 @@ export const Search = () => {
         p: '2px 4px',
         display: 'flex',
         alignItems: 'center',
-        width: 400,
+        width: {
+          sm: 200, // theme.breakpoints.up('sm')
+          lg: 400, // theme.breakpoints.up('xl')
+        },
       }}
     >
       <InputBase

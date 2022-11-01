@@ -5,7 +5,6 @@ import { Header } from './components/Header/Header';
 import { Search } from './components/Search/Search';
 import { Carousel } from './components/Carousel/Carousel';
 import { WeatherChart } from './components/WeatherChart/WeatherChart';
-import axios from 'axios';
 import { setWeatherData } from './redux/slices/weather';
 import { useAppDispatch } from './utils/useAppDispatch';
 import { useAppSelector } from './utils/useAppSelector';

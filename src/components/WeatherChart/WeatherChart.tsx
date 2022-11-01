@@ -77,7 +77,10 @@ export const WeatherChart = () => {
   return (
     <Paper
       sx={{
-        minWidth: 600,
+        minWidth: {
+          sm: 300, // theme.breakpoints.up('sm')
+          lg: 600, // theme.breakpoints.up('xl')
+        },
         bgcolor: 'rgba(255, 255, 255, 0.2)',
         boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
         backdropFilter: 'blur(5px)',

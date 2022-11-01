@@ -25,7 +25,10 @@ export const WeatherCrad = ({
   return (
     <Card
       sx={{
-        minWidth: 275,
+        minWidth: {
+          sm: 150, // theme.breakpoints.up('sm')
+          lg: 275, // theme.breakpoints.up('xl')
+        },
         bgcolor: 'rgba(255, 255, 255, 0.2)',
         boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
         backdropFilter: 'blur(5px)',

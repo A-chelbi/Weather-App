@@ -26,10 +26,23 @@ export const Carousel = ({ city, unitData }: CarouselProps) => {
       <Swiper
         modules={[Navigation, A11y]}
         spaceBetween={50}
-        slidesPerView={3}
         navigation
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
+        breakpoints={{
+          '0': {
+            slidesPerView: 1.3,
+          },
+          '330': {
+            slidesPerView: 2,
+          },
+          '768': {
+            slidesPerView: 2,
+          },
+          '1024': {
+            slidesPerView: 3,
+          },
+        }}
       >
         {data?.map((slideContent: any, i: any) => {
           // Todo: filter data by day
