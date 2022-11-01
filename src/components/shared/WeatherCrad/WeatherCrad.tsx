@@ -4,28 +4,17 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
-const bull = (
-  <Box
-    component="span"
-    sx={{
-      display: 'inline-block',
-      mx: '2px',
-      transform: 'scale(0.8)',
-    }}
-  >
-    •
-  </Box>
-);
-
 interface WeatherCradProps {
   city?: string;
   temp?: string;
+  unitData?: string;
   date: string;
 }
 
 export const WeatherCrad = ({
   city,
   temp,
+  unitData,
   date,
 }: WeatherCradProps) => {
   const dt = new Date(date);
@@ -51,7 +40,7 @@ export const WeatherCrad = ({
         )}
 
         <Typography variant="h5" color="#fff" component="div">
-          {temp} C{bull}
+          {temp} {unitData === 'metric' ? '°C' : 'F'}
         </Typography>
 
         <Typography sx={{ mb: 1.5 }} color="#fff">

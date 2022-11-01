@@ -24,8 +24,8 @@ export const Header = ({ setUnitData, unit }: HeaderProps) => {
   const onChangeHandler = (
     e: React.SyntheticEvent<Element, Event>
   ) => {
-    console.log((e.target as HTMLInputElement).value);
     const unitData = (e.target as HTMLInputElement).value;
+
     setUnitData(unitData);
   };
 

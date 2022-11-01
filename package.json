@@ -56,7 +56,8 @@
     ]
   },
   "devDependencies": {
+    "@types/faker": "5.5.3",
     "@types/styled-components": "^5.1.26",
-    "@types/faker": "5.5.3"
+    "gh-pages": "^4.0.0"
   }
 }

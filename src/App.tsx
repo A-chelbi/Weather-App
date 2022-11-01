@@ -18,7 +18,7 @@ function App() {
 
   const [location, setLocation] = useState<string>('Tunisia');
   // const [data, setData] = useState(null);
-  const [unitData, setUnitData] = useState('');
+  const [unitData, setUnitData] = useState('metric');
 
   const dispatch = useAppDispatch();
 
@@ -28,11 +28,14 @@ function App() {
     );
   };
 
+  // Initialise weather Data and Update after changing units
   useEffect(() => {
+    const unit = unitData;
+
     getWeatherDataRequest({ lat, lon, unit }).then((res) =>
       dispatch(setWeatherData(res.data.list))
     );
-  }, []);
+  }, [unitData]);
 
   return (
     <div className="App">

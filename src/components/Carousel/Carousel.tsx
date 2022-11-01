@@ -14,7 +14,6 @@ interface CarouselProps {
   unitData?: string;
 }
 export const Carousel = ({ city, unitData }: CarouselProps) => {
-  const [weatherData, setData] = useState(null);
   const data = useAppSelector((state) => state.weather.weatherData);
 
   // Todo: update data when unitData is changed
@@ -44,6 +43,7 @@ export const Carousel = ({ city, unitData }: CarouselProps) => {
                 city={city}
                 temp={slideContent.main.temp}
                 date={slideContent.dt_txt}
+                unitData={unitData}
               />
             </SwiperSlide>
           );
