@@ -14,7 +14,6 @@ interface CarouselProps {
   unitData?: string;
 }
 export const Carousel = ({ city, unitData }: CarouselProps) => {
-  const [weatherData, setData] = useState(null);
   const data = useAppSelector((state) => state.weather.weatherData);
 
   // Todo: update data when unitData is changed
@@ -25,13 +24,10 @@ export const Carousel = ({ city, unitData }: CarouselProps) => {
   return (
     <>
       <Swiper
-        // install Swiper modules
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        modules={[Navigation, A11y]}
         spaceBetween={50}
         slidesPerView={3}
         navigation
-        pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
       >
@@ -47,6 +43,7 @@ export const Carousel = ({ city, unitData }: CarouselProps) => {
                 city={city}
                 temp={slideContent.main.temp}
                 date={slideContent.dt_txt}
+                unitData={unitData}
               />
             </SwiperSlide>
           );
