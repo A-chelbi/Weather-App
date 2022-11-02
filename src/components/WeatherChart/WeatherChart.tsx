@@ -44,7 +44,7 @@ export const WeatherChart = () => {
   );
 
   const labels = weatherData.map(
-    (element: any, i: any) => element?.dt_txt
+    (element: any, i: number) => element?.dt_txt
   );
 
   const data = {

@@ -5,6 +5,7 @@ interface WeatherState {
   unit: string;
   lat: string;
   lon: string;
+  cityName: string;
 }
 
 const initialState: WeatherState = {
@@ -12,6 +13,7 @@ const initialState: WeatherState = {
   unit: 'metric',
   lat: '36',
   lon: '10',
+  cityName: 'Tunis',
 };
 
 const WeatherSlice = createSlice({
@@ -30,10 +32,19 @@ const WeatherSlice = createSlice({
     setLon: (state, action: PayloadAction<string>) => {
       state.lon = action.payload;
     },
+    setCityName: (state, action: PayloadAction<string>) => {
+      state.cityName = action.payload;
+    },
   },
 });
 
-export const { setWeatherData, setUnit } = WeatherSlice.actions;
+export const {
+  setWeatherData,
+  setUnit,
+  setLat,
+  setLon,
+  setCityName,
+} = WeatherSlice.actions;
 
 // Reducer
 export default WeatherSlice.reducer;

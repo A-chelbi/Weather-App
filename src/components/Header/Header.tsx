@@ -32,7 +32,6 @@ export const Header = ({ setUnitData, unit }: HeaderProps) => {
   return (
     <div>
       <Title>Weather app</Title>
-
       <FormControl>
         <FormLabel
           id="unit-radio-buttons-group-label"

@@ -16,11 +16,6 @@ interface CarouselProps {
 export const Carousel = ({ city, unitData }: CarouselProps) => {
   const data = useAppSelector((state) => state.weather.weatherData);
 
-  // Todo: update data when unitData is changed
-  //   useEffect(() => {
-
-  // }, [])
-
   return (
     <>
       <Swiper
