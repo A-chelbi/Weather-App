@@ -44,7 +44,7 @@ export const WeatherChart = () => {
   );
 
   const labels = weatherData.map(
-    (element: any, i: any) => element?.dt_txt
+    (element: any, i: number) => element?.dt_txt
   );
 
   const data = {
@@ -77,14 +77,17 @@ export const WeatherChart = () => {
   return (
     <Paper
       sx={{
-        minWidth: 600,
+        minWidth: {
+          sm: 300, // theme.breakpoints.up('sm')
+          lg: 600, // theme.breakpoints.up('xl')
+        },
         bgcolor: 'rgba(255, 255, 255, 0.2)',
         boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
         backdropFilter: 'blur(5px)',
         border: '1px solid rgba(255, 255, 255, 0.3)',
         color: '#fff',
-        mb: 20,
-        mt: 10,
+        mb: 10,
+        mt: 5,
       }}
     >
       <Bar options={options} data={data} />
