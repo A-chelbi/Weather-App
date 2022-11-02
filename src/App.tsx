@@ -19,7 +19,7 @@ function App() {
 
   const dispatch = useAppDispatch();
 
-  // Initialise weather Data and Update after changing units
+  // Initialise weather Data and Update after changing units and cityName
   useEffect(() => {
     const unit = unitData;
 

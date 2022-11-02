@@ -12,6 +12,13 @@ import {
   setLat,
   setLon,
 } from '../../redux/slices/weather';
+import styled from 'styled-components';
+
+const Form = styled.form`
+  display: flex;
+  align-items: 'center';
+  gap: 30px;
+`;
 
 export const Search = () => {
   const dispatch = useAppDispatch();
@@ -55,7 +62,7 @@ export const Search = () => {
 
   return (
     <>
-      <form onSubmit={onSubmitHandler}>
+      <Form onSubmit={onSubmitHandler}>
         <Paper
           sx={{
             p: '2px 4px',
@@ -84,7 +91,7 @@ export const Search = () => {
         <Button type="submit" variant="outlined">
           search
         </Button>
-      </form>
+      </Form>
       {err && <Alert severity="error">{err}</Alert>}
     </>
   );

@@ -86,8 +86,8 @@ export const WeatherChart = () => {
         backdropFilter: 'blur(5px)',
         border: '1px solid rgba(255, 255, 255, 0.3)',
         color: '#fff',
-        mb: 20,
-        mt: 10,
+        mb: 10,
+        mt: 5,
       }}
     >
       <Bar options={options} data={data} />

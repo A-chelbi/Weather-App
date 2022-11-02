@@ -1,4 +1,5 @@
 import {
+  Box,
   FormControl,
   FormControlLabel,
   FormLabel,
@@ -30,18 +31,13 @@ export const Header = ({ setUnitData, unit }: HeaderProps) => {
   };
 
   return (
-    <div>
-      <Title>Weather app</Title>
+    <Box
+      component="div"
+      sx={{
+        mt: 5,
+      }}
+    >
       <FormControl>
-        <FormLabel
-          id="unit-radio-buttons-group-label"
-          sx={{
-            color: '#fff',
-          }}
-        >
-          Unit
-        </FormLabel>
-
         <RadioGroup
           aria-labelledby="unit-radio-buttons-group-label"
           row
@@ -81,6 +77,6 @@ export const Header = ({ setUnitData, unit }: HeaderProps) => {
           />
         </RadioGroup>
       </FormControl>
-    </div>
+    </Box>
   );
 };
